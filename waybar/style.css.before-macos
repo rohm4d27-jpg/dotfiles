@@ -1,0 +1,186 @@
+@import "../omarchy/current/theme/waybar.css";
+
+* {
+  background-color: transparent;
+  color: @foreground;
+
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: 'JetBrainsMono Nerd Font Mono';
+  font-size: 14px;
+}
+
+.modules-left {
+  margin-left: 8px;
+}
+
+.modules-right {
+  margin-right: 8px;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#cpu,
+#battery,
+#pulseaudio,
+#custom-omarchy,
+#custom-update {
+  min-width: 12px;
+  margin: 0 7.5px;
+}
+
+#tray {
+  margin-right: 16px;
+}
+
+#bluetooth {
+  margin-right: 17px;
+}
+
+#network {
+  margin-right: 13px;
+}
+
+#custom-expand-icon {
+  margin-right: 18px;
+}
+
+tooltip {
+  padding: 2px;
+}
+
+#custom-update {
+  font-size: 10px;
+}
+
+#clock {
+  margin-left: 8.75px;
+}
+
+#custom-weather {
+  margin-left: 7.5px;
+  margin-right: 7.5px;
+}
+
+#custom-weather.unavailable {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#custom-screenrecording-indicator,
+#custom-idle-indicator,
+#custom-notification-silencing-indicator {
+  min-width: 12px;
+  margin-left: 5px;
+  margin-right: 0;
+  font-size: 10px;
+  padding-bottom: 1px;
+}
+
+#custom-screenrecording-indicator.active {
+  color: #a55555;
+}
+
+#custom-idle-indicator.active,
+#custom-notification-silencing-indicator.active {
+  color: #a55555;
+}
+
+#custom-voxtype {
+  min-width: 12px;
+  margin: 0 0 0 7.5px;
+}
+
+#custom-voxtype.recording {
+  color: #a55555;
+}
+
+/* ---------- Premium Floating Waybar ---------- */
+
+
+#workspaces button {
+
+    min-width: 28px;
+
+    min-height: 28px;
+
+    margin: 4px;
+
+    padding: 0;
+
+    border-radius: 999px;
+
+    transition: all 200ms;
+
+    background: transparent;
+}
+
+
+#workspaces button.active {
+
+    background: rgba(255,255,255,.14);
+
+    color: white;
+}
+
+#workspaces button:hover {
+
+    background: rgba(255,255,255,.09);
+}
+
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#bluetooth,
+#cpu,
+#tray,
+#custom-weather,
+#custom-update {
+
+    background: rgba(255,255,255,.06);
+
+    border-radius: 999px;
+
+    padding: 0 14px;
+
+    margin: 4px;
+}
+tooltip {
+    border-radius: 12px;
+}
+
+/* ===== macOS Floating Waybar ===== */
+
+window#waybar,
+window#waybar.top,
+window#waybar.background {
+
+    background: alpha(#1b1b1b,0.35);
+
+    border: 1px solid alpha(white,0.08);
+
+    border-radius: 18px;
+
+    margin-top: 10px;
+    margin-left: 14px;
+    margin-right: 14px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.modules-left,
+.modules-center,
+.modules-right {
+    background: rgba(30,30,30,0.35);
+    border-radius: 16px;
+    padding: 0 10px;
+    margin: 6px;
+}
