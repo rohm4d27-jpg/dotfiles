@@ -1,142 +1,152 @@
 @import "../omarchy/current/theme/waybar.css";
 
-/* =============================================
-   macOS-style Glassmorphism Waybar
-   ============================================= */
+/* ================================================================
+   Single centered floating pill — monochrome
+   ================================================================ */
 
 * {
   background-color: transparent;
-  color: @foreground;
+  color: rgba(255, 255, 255, 0.75);
   border: none;
   border-radius: 0;
   min-height: 0;
   font-family: 'Inter', 'JetBrainsMono Nerd Font Mono';
-  font-size: 13px;
+  font-size: 12px;
   padding: 0;
   margin: 0;
 }
 
-/* ── Whole bar window ── */
 window#waybar {
   background: transparent;
+  border: none;
 }
 
-/* ── Left & Right pill containers (glassmorphism) ── */
 .modules-left,
 .modules-right {
-  background: rgba(20, 20, 22, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  padding: 0 12px;
-  margin: 6px 4px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-}
-
-/* ── Center: transparent so clock Dynamic Island stands out ── */
-.modules-center {
   background: transparent;
-  padding: 0;
-  margin: 0;
+  border: none;
 }
 
-/* ── Dynamic Island clock ── */
-#clock {
-  background: rgba(0, 0, 0, 0.86);
-  color: rgba(255, 255, 255, 0.95);
+/* ── The single floating pill ── */
+/* Higher specificity beats whatever the theme import sets */
+window#waybar .modules-center {
+  background: rgba(0, 0, 0, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  padding: 5px 24px;
-  margin: 6px 6px;
-  font-size: 13.5px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  padding: 0 14px;
+  margin: 5px 0;
 }
 
-/* ── Apple-dot workspaces ── */
+/* ── Omarchy launcher ── */
+#custom-omarchy {
+  font-size: 14px;
+  padding: 0 6px 0 0;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 160ms ease;
+}
+
+#custom-omarchy:hover {
+  color: rgba(255, 255, 255, 0.80);
+}
+
+/* ── Workspaces ── */
 #workspaces {
   padding: 0 4px;
 }
 
 #workspaces button {
   background: transparent;
-  color: rgba(255, 255, 255, 0.28);
-  font-size: 7px;
-  padding: 2px 3.5px;
-  min-width: 10px;
-  min-height: 0;
+  color: rgba(255, 255, 255, 0.55);
+  padding: 0 2.5px;
+  min-width: 8px;
   border-radius: 50%;
-  transition: all 180ms ease;
   box-shadow: none;
+  transition: color 180ms ease;
 }
 
 #workspaces button:hover {
-  background: rgba(255, 255, 255, 0.09);
-  color: rgba(255, 255, 255, 0.65);
-}
-
-#workspaces button.active {
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 9px;
-}
-
-#workspaces button.empty {
-  color: rgba(255, 255, 255, 0.13);
-  font-size: 6px;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 #workspaces button.urgent {
-  color: rgba(255, 90, 90, 0.9);
+  color: rgba(255, 255, 255, 0.88);
+  animation: blink 0.9s linear infinite;
 }
 
-/* ── Omarchy launcher ── */
-#custom-omarchy {
-  font-size: 15px;
-  padding: 0 6px 0 0;
-  color: rgba(255, 255, 255, 0.65);
+/* ── Clock — divider on left, most prominent element ── */
+#clock {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  padding: 0 10px;
+  margin-left: 2px;
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
 }
 
-/* ── Right-side status icons (individual pill chips) ── */
+/* ── MPRIS / Spotify ── */
+#mpris {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  padding: 0 10px;
+  margin-left: 2px;
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+  letter-spacing: 0.1px;
+}
+
+#mpris.paused {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+/* ── Network disconnected / disabled ── */
+#network.disconnected,
+#network.disabled {
+  color: #ff4444;
+}
+
+/* ── Status modules — inline, no individual backgrounds ── */
+#network {
+  color: rgba(255, 255, 255, 0.60);
+  font-size: 12px;
+  padding: 0 6px;
+  margin-left: 2px;
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+}
+
 #bluetooth,
-#network,
 #pulseaudio,
 #cpu,
 #battery {
-  background: rgba(255, 255, 255, 0.055);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 999px;
-  font-size: 14px;
-  padding: 3px 14px;
-  margin: 4px 3px;
-  min-width: 28px;
-  color: rgba(255, 255, 255, 0.82);
-  transition: background 160ms ease;
+  color: rgba(255, 255, 255, 0.60);
+  font-size: 12px;
+  padding: 0 5px;
 }
 
-#bluetooth:hover,
 #network:hover,
+#bluetooth:hover,
 #pulseaudio:hover,
 #cpu:hover,
 #battery:hover {
-  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.90);
 }
 
+/* ── Battery states — monochrome only ── */
 #battery.warning {
-  color: rgba(255, 200, 55, 0.95);
+  color: rgba(255, 255, 255, 0.50);
 }
 
 #battery.critical {
-  color: rgba(255, 75, 75, 0.95);
+  color: #ff4444;
   animation: blink 1s linear infinite;
 }
 
 @keyframes blink {
-  to { opacity: 0.5; }
+  to { opacity: 0.35; }
 }
 
 /* ── Tray ── */
 #tray {
-  padding: 0 4px;
+  padding: 0 2px 0 4px;
 }
 
 #tray > .passive {
@@ -145,67 +155,14 @@ window#waybar {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background: rgba(255, 75, 75, 0.25);
-  border-radius: 4px;
-}
-
-/* ── Center pill indicators ── */
-#custom-weather {
-  font-size: 13px;
-  padding: 0 8px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-#custom-weather.unavailable {
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-}
-
-#custom-update {
-  font-size: 9px;
-  padding: 0 5px;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-#custom-screenrecording-indicator,
-#custom-idle-indicator,
-#custom-notification-silencing-indicator,
-#custom-voxtype {
-  font-size: 11px;
-  padding: 0 5px;
-  color: rgba(255, 255, 255, 0.55);
-  min-width: 12px;
-}
-
-#custom-screenrecording-indicator.active,
-#custom-idle-indicator.active,
-#custom-notification-silencing-indicator.active {
-  color: rgba(195, 75, 75, 0.95);
-}
-
-#custom-voxtype.recording {
-  color: rgba(195, 75, 75, 0.95);
-}
-
-#custom-expand-icon {
-  margin-right: 6px;
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 11px;
 }
 
 /* ── Tooltips ── */
 tooltip {
-  background: rgba(18, 18, 20, 0.90);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 6px 12px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.hidden {
-  opacity: 0;
-  min-width: 0;
-  padding: 0;
-  margin: 0;
+  background: rgba(10, 10, 12, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 5px 12px;
+  color: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.50);
 }
