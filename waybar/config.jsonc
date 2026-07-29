@@ -72,7 +72,7 @@
   },
 
   "network": {
-    "format-wifi": "<span size='16384'>󰖩</span><span rise='4096'> {essid}</span>",
+    "format-wifi": "<span size='18384'>󰖩</span><span rise='3500'> {essid}</span>",
     "format-ethernet": "󰀂",
     "format-disconnected": "󰤮",
     "tooltip-format-wifi": "{signalStrength}% signal",
@@ -83,17 +83,17 @@
   },
 
   "bluetooth": {
-    "format": "󰂯",
+    "format": "<span size='12000'>󰂯</span>",
     "format-off": "󰂲",
     "format-disabled": "󰂲",
-    "format-connected": "󰂱 {device_alias}",
+    "format-connected": "<span size='10500'>󰂱</span><span rise='4096'> {device_alias}</span>",
     "format-no-controller": "",
     "tooltip-format": "{num_connections} device(s) connected",
     "on-click": "omarchy-launch-bluetooth"
   },
 
   "pulseaudio": {
-    "format": "<span size='16384'>{icon}</span><span rise='4096'> {volume}%</span>",
+    "format": "<span size='16000'>{icon}</span><span rise='2500'> {volume}%</span>",
     "format-muted": "󰖁 muted",
     "on-click": "omarchy-launch-audio",
     "on-click-right": "pamixer -t",
@@ -108,14 +108,14 @@
 
   "cpu": {
     "interval": 5,
-    "format": "<span size='16384'>󰍛</span><span rise='4096'> {usage}%</span>",
+    "format": "<span size='19500'>󰍛</span><span rise='4500'> {usage}%</span>",
     "on-click": "omarchy-launch-or-focus-tui btop"
   },
 
   "battery": {
-    "format": "{icon} <span foreground='#999999'>{capacity}%</span>",
-    "format-charging": "{icon} <span foreground='#999999'>{capacity}%</span>",
-    "format-plugged": "󰚥 <span foreground='#999999'>{capacity}%</span>",
+    "format": "<span size='11000'>{icon}</span><span rise='450'><span foreground='#999999'> {capacity}%</span></span>",
+    "format-charging": "<span size='15384'></span><span rise='450'><span foreground='#999999'> {capacity}%</span></span>",
+    "format-plugged": "<span size='11000'>󰚥</span><span rise='450'><span foreground='#999999'> {capacity}%</span></span>",
     "format-icons": {
       "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
       "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
@@ -125,7 +125,7 @@
     "on-click": "omarchy-menu power",
     "states": {
       "warning": 20,
-      "critical": 10
+      "critical": 10,
     }
   },
 
