@@ -150,30 +150,32 @@ window#waybar .modules-center {
 }
 
 #pulseaudio-slider {
-  padding: 1px 6px 0 6px;
-  min-width: 44px;
+  padding: 1px 4px 0 4px;
+  min-width: 26px;
 }
 
 #pulseaudio-slider trough {
-  min-height: 4px;
-  min-width: 44px;
+  min-height: 3px;
+  min-width: 26px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.16);
 }
 
 #pulseaudio-slider highlight {
-  min-height: 4px;
+  min-height: 3px;
   border-radius: 999px;
   background: #6fb3e0;
 }
 
+/* Just a level indicator, not a visible drag handle — keep it flush with
+   the track instead of a separate thumb, like the other status modules. */
 #pulseaudio-slider slider {
-  min-height: 8px;
-  min-width: 8px;
+  min-height: 3px;
+  min-width: 3px;
   border-radius: 999px;
-  background: #ffffff;
+  background: transparent;
   border: none;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  box-shadow: none;
 }
 
 /* ── Battery states — monochrome only ── */
