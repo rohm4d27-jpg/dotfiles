@@ -138,22 +138,17 @@ window#waybar .modules-center {
   opacity: 1;
 }
 
-/* ── Volume: speaker icon + percentage above, thin glass slider below ── */
-#group-volume {
+/* ── Volume: percentage + thin glass slider, single line like everything else ── */
+#pulseaudio-volume-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.60);
+  padding: 0 0 0 6px;
   margin-left: 2px;
-  padding-left: 8px;
   border-left: 1px solid rgba(140, 200, 255, 0.18);
 }
 
-#pulseaudio-volume-label {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.80);
-  padding: 0;
-  margin: 0;
-}
-
 #pulseaudio-slider {
-  padding: 2px 2px 0 2px;
+  padding: 0 5px;
   min-width: 40px;
 }
 
