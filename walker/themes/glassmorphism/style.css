@@ -1,0 +1,137 @@
+@define-color selected-text #ffffff;
+@define-color text #ffffff;
+@define-color base #0f1c2c;
+@define-color border #6fb3e0;
+@define-color foreground #ffffff;
+@define-color background #0f1c2c;
+
+* {
+  all: unset;
+}
+
+* {
+  font-family: 'Inter', monospace;
+  font-size: 17px;
+  color: @text;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+.box-wrapper {
+  background: linear-gradient(
+    165deg,
+    alpha(#3a6ea5, 0.35),
+    alpha(@base, 0.55)
+  );
+  padding: 20px;
+  border: 1px solid alpha(@border, 0.35);
+  border-radius: 22px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.preview-box {
+}
+
+.box {
+}
+
+.search-container {
+  background: alpha(@border, 0.16);
+  border: 1px solid alpha(@border, 0.22);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.input placeholder {
+  opacity: 0.45;
+}
+
+.input {
+}
+
+.input:focus,
+.input:active {
+  box-shadow: none;
+  outline: none;
+}
+
+.content-container {
+}
+
+.placeholder {
+}
+
+.scroll {
+}
+
+.list {
+}
+
+child,
+child > * {
+}
+
+child:hover .item-box {
+}
+
+child:selected .item-box {
+}
+
+child:selected .item-box * {
+  color: @selected-text;
+}
+
+child:selected {
+  background: alpha(@border, 0.25);
+  border-radius: 10px;
+}
+
+.item-box {
+  padding-left: 14px;
+}
+
+.item-text-box {
+  all: unset;
+  padding: 14px 0;
+}
+
+.item-text {
+}
+
+.item-subtext {
+  font-size: 0px;
+  min-height: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.item-image {
+  margin-right: 14px;
+  -gtk-icon-transform: scale(0.9);
+}
+
+.current {
+  font-style: italic;
+}
+
+.keybind-hints {
+  background: alpha(@border, 0.10);
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.preview {
+}

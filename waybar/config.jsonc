@@ -16,7 +16,8 @@
     "mpris",
     "network",
     "bluetooth",
-    "pulseaudio",
+    "image#volume",
+    "custom/volume",
     "cpu",
     "battery",
     "tray"
@@ -34,10 +35,10 @@
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "active":   "<span foreground='#ff4444' size='14336'>●</span>",
-      "occupied": "<span size='8192'>●</span>",
+      "active":   "<span foreground='#6fb3e0' size='14336'>●</span>",
+      "occupied": "<span size='6144'>●</span>",
       "empty":    "<span size='6144'>●</span>",
-      "default":  "<span size='8192'>●</span>"
+      "default":  "<span size='6144'>●</span>"
     },
     "persistent-workspaces": {
       "1": [],
@@ -59,8 +60,8 @@
     "format": "{status_icon}  {title}",
     "format-paused": "{status_icon}  {title}",
     "status-icons": {
-      "playing": "▶",
-      "paused": "⏸",
+      "paused": "▶",
+      "playing": "⏸",
       "stopped": "⏹"
     },
     "on-click": "playerctl play-pause",
@@ -73,8 +74,8 @@
 
   "network": {
     "format-wifi": "<span size='18384'>󰖩</span><span rise='3500'> {essid}</span>",
-    "format-ethernet": "󰀂",
-    "format-disconnected": "󰤮",
+    "format-ethernet": "<span size='18384'>󰀂</span><span rise='3500'> {essid}</span>", 
+    "format-disconnected": "<span size='18384'>󰤮</span><span rise='3500'> {essid}</span>",
     "tooltip-format-wifi": "{signalStrength}% signal",
     "tooltip-format-ethernet": "Ethernet",
     "tooltip-format-disconnected": "No connection",
@@ -84,26 +85,32 @@
 
   "bluetooth": {
     "format": "<span size='12000'>󰂯</span>",
-    "format-off": "󰂲",
-    "format-disabled": "󰂲",
-    "format-connected": "<span size='10500'>󰂱</span><span rise='4096'> {device_alias}</span>",
+    "format-off": "<span size='13000'>󰂲</span>",
+    "format-disabled": "<span size='13000'>󰂲</span>",
+    "format-connected": "<span size='12000'>󰂱</span><span rise='4096'> {device_alias}</span>",
     "format-no-controller": "",
     "tooltip-format": "{num_connections} device(s) connected",
     "on-click": "omarchy-launch-bluetooth"
   },
 
-  "pulseaudio": {
-    "format": "<span size='16000'>{icon}</span><span rise='2500'> {volume}%</span>",
-    "format-muted": "󰖁 muted",
-    "on-click": "omarchy-launch-audio",
-    "on-click-right": "pamixer -t",
-    "scroll-step": 5,
+  "image#volume": {
+    "exec": "~/.config/waybar/scripts/volume-icon.sh",
+    "size": 16,
+    "interval": 0.3,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "omarchy-launch-audio",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+
+  "custom/volume": {
+    "exec": "~/.config/waybar/scripts/volume-bar.sh",
+    "format": "{}",
     "tooltip": false,
-    "format-icons": {
-      "headphone": "󰋋",
-      "headset": "󰋋",
-      "default": ["󰕿", "󰖀", "󰕾"]
-    }
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "omarchy-launch-audio",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
   },
 
   "cpu": {
@@ -114,7 +121,7 @@
 
   "battery": {
     "format": "<span size='11000'>{icon}</span><span rise='450'><span foreground='#999999'> {capacity}%</span></span>",
-    "format-charging": "<span size='15384'></span><span rise='450'><span foreground='#999999'> {capacity}%</span></span>",
+    "format-charging": "<span size='10000'>⚡</span><span rise='450'><span foreground='#999999'> {capacity}%</span></span>",
     "format-plugged": "<span size='11000'>󰚥</span><span rise='450'><span foreground='#999999'> {capacity}%</span></span>",
     "format-icons": {
       "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
