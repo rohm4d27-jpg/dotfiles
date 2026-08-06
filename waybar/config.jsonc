@@ -16,8 +16,7 @@
     "mpris",
     "network",
     "bluetooth",
-    "pulseaudio#volume-label",
-    "pulseaudio/slider",
+    "group/volume",
     "cpu",
     "battery",
     "tray"
@@ -93,9 +92,17 @@
     "on-click": "omarchy-launch-bluetooth"
   },
 
+  "group/volume": {
+    "orientation": "vertical",
+    "modules": ["pulseaudio#volume-label", "pulseaudio/slider"]
+  },
+
   "pulseaudio#volume-label": {
-    "format": "{volume}%",
-    "format-muted": "Muted",
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
     "tooltip": false,
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "omarchy-launch-audio"
