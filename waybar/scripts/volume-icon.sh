@@ -1,43 +1,58 @@
 #!/bin/bash
+# Renders a single glass-pill volume slider (speaker glyph + live fill bar)
+# as a PNG that waybar's image#volume module displays.
 
 OUT="$HOME/.cache/waybar-volume-icon.png"
-SIZE=16
-CX=8
-CY=7.5
-R=5.8
-STROKE=2.3
-COLOR_NORMAL="#ffffff9e"
-COLOR_MUTED="#ffffff59"
+W=70
+H=20
+
+TRACK_COLOR="#ffffff2e"
+FILL_COLOR="#6fb3e0"
+FILL_MUTED="#ffffff59"
+ICON_COLOR="#ffffffd0"
+ICON_MUTED="#ffffff59"
 
 info=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
 vol=$(awk '{printf "%d", $2*100}' <<<"$info")
 ((vol < 0)) && vol=0
 ((vol > 100)) && vol=100
+muted=0
+[[ "$info" == *MUTED* ]] && muted=1
 
-if [[ "$info" == *MUTED* ]]; then
-  angle=12
-  color="$COLOR_MUTED"
+# ── Bar geometry ──
+bar_x1=18
+bar_x2=66
+bar_y1=8
+bar_y2=12
+bar_r=2
+bar_w=$((bar_x2 - bar_x1))
+
+fill_w=$((bar_w * vol / 100))
+((fill_w < bar_r * 2 && fill_w > 0)) && fill_w=$((bar_r * 2))
+fill_x2=$((bar_x1 + fill_w))
+
+fill_color="$FILL_COLOR"
+icon_color="$ICON_COLOR"
+((muted)) && fill_color="$FILL_MUTED" && icon_color="$ICON_MUTED"
+
+draw=(
+  # speaker body + cone
+  -fill "$icon_color" -draw "polygon 2,7 6,7 6,13 2,13"
+  -fill "$icon_color" -draw "polygon 6,7 11,3 11,17 6,13"
+  # track
+  -fill "$TRACK_COLOR" -draw "roundrectangle $bar_x1,$bar_y1 $bar_x2,$bar_y2 $bar_r,$bar_r"
+)
+
+if ((!muted)); then
+  draw+=(-stroke "$icon_color" -strokewidth 1.4 -fill none -draw "path 'M 13,7 A 5,5 0 0 1 13,13'")
 else
-  angle=$(( (vol * 360 + 50) / 100 ))
-  ((angle < 12)) && angle=12
-  color="$COLOR_NORMAL"
+  draw+=(-stroke "$icon_color" -strokewidth 1.4 -draw "line 12,6 17,14" -draw "line 12,14 17,6")
 fi
 
-read -r top_x top_y ex ey large full <<<"$(awk -v a="$angle" -v cx="$CX" -v cy="$CY" -v r="$R" 'BEGIN {
-  pi = atan2(0, -1); rad = a * pi / 180
-  top_x = cx; top_y = cy - r
-  ex = cx + r * sin(rad); ey = cy - r * cos(rad)
-  large = (a > 180) ? 1 : 0
-  full = (a >= 358) ? 1 : 0
-  printf "%.3f %.3f %.3f %.3f %d %d", top_x, top_y, ex, ey, large, full
-}')"
-
-if ((full)); then
-  magick -size "${SIZE}x${SIZE}" xc:none -stroke "$color" -strokewidth "$STROKE" -fill none \
-    -draw "stroke-linecap round circle $CX,$CY $top_x,$top_y" "$OUT"
-else
-  magick -size "${SIZE}x${SIZE}" xc:none -stroke "$color" -strokewidth "$STROKE" -fill none \
-    -draw "stroke-linecap round path 'M $top_x,$top_y A $R,$R 0 $large,1 $ex,$ey'" "$OUT"
+if ((fill_w > 0)); then
+  draw+=(-fill "$fill_color" -draw "roundrectangle $bar_x1,$bar_y1 $fill_x2,$bar_y2 $bar_r,$bar_r")
 fi
+
+magick -size "${W}x${H}" xc:none "${draw[@]}" "$OUT"
 
 echo "$OUT"

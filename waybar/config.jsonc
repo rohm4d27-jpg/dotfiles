@@ -17,7 +17,6 @@
     "network",
     "bluetooth",
     "image#volume",
-    "custom/volume",
     "cpu",
     "battery",
     "tray"
@@ -95,18 +94,8 @@
 
   "image#volume": {
     "exec": "~/.config/waybar/scripts/volume-icon.sh",
-    "size": 16,
-    "interval": 0.3,
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "omarchy-launch-audio",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-  },
-
-  "custom/volume": {
-    "exec": "~/.config/waybar/scripts/volume-bar.sh",
-    "format": "{}",
-    "tooltip": false,
+    "interval": 0.2,
+    "tooltip-format": "Volume",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "omarchy-launch-audio",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
