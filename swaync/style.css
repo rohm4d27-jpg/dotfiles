@@ -2,10 +2,10 @@
   /* Same glass recipe as the waybar pill and swayosd, so every glass
      surface in the theme matches instead of each looking like a
      different shade/opacity. */
-  --cc-bg: linear-gradient(160deg, rgba(25, 45, 65, 0.62), rgba(6, 12, 20, 0.72));
+  --cc-bg: linear-gradient(160deg, rgba(25, 45, 65, 0.28), rgba(6, 12, 20, 0.38));
   --noti-border-color: rgba(140, 200, 255, 0.22);
   --noti-bg: 16, 28, 42;
-  --noti-bg-alpha: 0.67;
+  --noti-bg-alpha: 0.33;
   --noti-bg-darker: rgb(20, 35, 50);
   --noti-bg-hover: rgb(50, 90, 125);
   --noti-bg-focus: rgba(60, 105, 145, 0.55);
@@ -31,9 +31,9 @@
 
 /* Fallback for older CSS themes */
 /* Fallback for older CSS themes */
-@define-color cc-bg rgba(16, 28, 42, 0.67);
+@define-color cc-bg rgba(16, 28, 42, 0.33);
 @define-color noti-border-color rgba(140, 200, 255, 0.22);
-@define-color noti-bg rgba(16, 28, 42, 0.67);
+@define-color noti-bg rgba(16, 28, 42, 0.33);
 @define-color noti-bg-opaque rgb(16, 28, 42);
 @define-color noti-bg-darker rgb(20, 35, 50);
 @define-color noti-bg-hover rgb(50, 90, 125);
