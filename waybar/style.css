@@ -138,39 +138,42 @@ window#waybar .modules-center {
   opacity: 1;
 }
 
-/* ── Volume: percentage above, rounded glass slider below ── */
+/* ── Volume: percentage above, thin rounded glass slider below ── */
 #pulseaudio-volume-label {
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
-  padding: 0 4px;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0;
+  margin-left: 2px;
+  border-left: 1px solid rgba(140, 200, 255, 0.18);
+  padding-left: 6px;
 }
 
 #pulseaudio-slider {
-  padding: 2px 6px 0 6px;
-  min-width: 96px;
+  padding: 1px 6px 0 6px;
+  min-width: 44px;
 }
 
 #pulseaudio-slider trough {
-  min-height: 8px;
-  min-width: 96px;
+  min-height: 4px;
+  min-width: 44px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.16);
 }
 
 #pulseaudio-slider highlight {
-  min-height: 8px;
+  min-height: 4px;
   border-radius: 999px;
   background: #6fb3e0;
 }
 
 #pulseaudio-slider slider {
-  min-height: 12px;
-  min-width: 12px;
+  min-height: 8px;
+  min-width: 8px;
   border-radius: 999px;
   background: #ffffff;
   border: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 /* ── Battery states — monochrome only ── */

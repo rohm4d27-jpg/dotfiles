@@ -322,7 +322,9 @@ notificationwindow, blankwindow {
   color: var(--text-color);
   border-radius: var(--border-radius);
   border: 1px solid rgba(140, 200, 255, 0.22);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.40);
+  /* No box-shadow: this surface is sized tightly to the panel, so a shadow
+     gets hard-clipped at the window edge and shows as a visible rectangle
+     instead of a soft glow. Blur (looknfeel.conf) supplies the glass look. */
 }
 
 .control-center .control-center-list-placeholder {
