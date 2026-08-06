@@ -14,6 +14,11 @@ confirm-close-surface=false
 resize-overlay = never
 gtk-toolbar-style = flat
 
+# Below 1.0 so Ghostty stops declaring a fully opaque surface region —
+# otherwise the compositor skips blending and Hyprland's window opacity/blur
+# (looknfeel.conf) has no visible effect at all.
+background-opacity = 0.90
+
 # Cursor styling
 cursor-style = "block"
 cursor-style-blink = false

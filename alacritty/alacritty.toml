@@ -16,6 +16,10 @@ size = 9
 padding.x = 14
 padding.y = 14
 decorations = "None"
+# Below 1.0 so alacritty stops declaring a fully opaque surface region —
+# otherwise the compositor skips blending and Hyprland's window opacity/blur
+# (looknfeel.conf) has no visible effect at all.
+opacity = 0.90
 
 [keyboard]
 bindings = [
