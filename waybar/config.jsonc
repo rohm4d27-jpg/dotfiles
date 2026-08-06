@@ -16,7 +16,8 @@
     "mpris",
     "network",
     "bluetooth",
-    "group/volume",
+    "pulseaudio#volume-label",
+    "pulseaudio/slider",
     "cpu",
     "battery",
     "tray"
@@ -90,11 +91,6 @@
     "format-no-controller": "",
     "tooltip-format": "{num_connections} device(s) connected",
     "on-click": "omarchy-launch-bluetooth"
-  },
-
-  "group/volume": {
-    "orientation": "vertical",
-    "modules": ["pulseaudio#volume-label", "pulseaudio/slider"]
   },
 
   "pulseaudio#volume-label": {
