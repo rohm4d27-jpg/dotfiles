@@ -1,7 +1,7 @@
 @import "../omarchy/current/theme/waybar.css";
 
 /* ================================================================
-   Single centered floating pill — blue/teal glassmorphism
+   Single centered floating pill — white glassmorphism
    Shape/position untouched: still centered, rounded pill.
    ================================================================ */
 
@@ -33,17 +33,14 @@ window#waybar {
 window#waybar .modules-center {
   background: linear-gradient(
     160deg,
-    rgba(25, 45, 65, 0.28),
-    rgba(6, 12, 20, 0.38)
+    rgba(41, 41, 41, 0.28),
+    rgba(11, 11, 11, 0.38)
   );
-  border: 1px solid rgba(140, 200, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
   padding: 0 14px;
   margin: 5px 0;
-  box-shadow:
-    0 8px 28px rgba(0, 0, 0, 0.40),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.20);
+  box-shadow: none;
 }
 
 /* ── Omarchy launcher ── */
@@ -90,7 +87,7 @@ window#waybar .modules-center {
   letter-spacing: 0.6px;
   padding: 0 10px;
   margin-left: 2px;
-  border-left: 1px solid rgba(140, 200, 255, 0.18);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 /* ── MPRIS / Spotify ── */
@@ -99,7 +96,7 @@ window#waybar .modules-center {
   font-size: 12px;
   padding: 0 10px;
   margin-left: 2px;
-  border-left: 1px solid rgba(140, 200, 255, 0.18);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
   letter-spacing: 0.1px;
 }
 
@@ -119,7 +116,7 @@ window#waybar .modules-center {
   font-size: 12px;
   padding: 0 6px;
   margin-left: 2px;
-  border-left: 1px solid rgba(140, 200, 255, 0.18);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 #bluetooth,
@@ -134,17 +131,8 @@ window#waybar .modules-center {
 #bluetooth:hover,
 #cpu:hover,
 #battery:hover {
-  color: rgba(150, 210, 255, 0.95);
+  color: rgba(255, 255, 255, 0.95);
   opacity: 1;
-}
-
-/* ── Volume: percentage + thin glass slider, single line like everything else ── */
-#pulseaudio-volume-label {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.60);
-  padding: 0 0 0 6px;
-  margin-left: 2px;
-  border-left: 1px solid rgba(140, 200, 255, 0.18);
 }
 
 #pulseaudio-slider {
@@ -162,7 +150,7 @@ window#waybar .modules-center {
 #pulseaudio-slider highlight {
   min-height: 3px;
   border-radius: 999px;
-  background: #6fb3e0;
+  background: rgba(255, 255, 255, 0.85);
 }
 
 /* Just a level indicator, not a visible drag handle — keep it flush with
@@ -207,12 +195,12 @@ window#waybar .modules-center {
 tooltip {
   background: linear-gradient(
     160deg,
-    rgba(50, 90, 130, 0.55),
-    rgba(15, 25, 38, 0.75)
+    rgba(83, 83, 83, 0.55),
+    rgba(23, 23, 23, 0.75)
   );
-  border: 1px solid rgba(140, 200, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 14px;
   padding: 5px 12px;
   color: rgba(255, 255, 255, 0.90);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.50);
+  box-shadow: none;
 }

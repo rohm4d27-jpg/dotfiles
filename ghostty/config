@@ -1,6 +1,11 @@
 # Dynamic theme colors
 config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 
+# Override the theme's blue-navy background with the neutral gray used
+# elsewhere in this theme. See colors-override.conf for why this has to be
+# a separate config-file rather than inline assignments.
+config-file = colors-override.conf
+
 # Font
 font-family = "JetBrainsMono Nerd Font Mono"
 font-style = Regular

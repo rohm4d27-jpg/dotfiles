@@ -1,9 +1,9 @@
 @define-color selected-text #ffffff;
 @define-color text #ffffff;
-@define-color base #0f1c2c;
-@define-color border #6fb3e0;
+@define-color base #1a1a1a;
+@define-color border #ffffff;
 @define-color foreground #ffffff;
-@define-color background #0f1c2c;
+@define-color background #1a1a1a;
 
 * {
   all: unset;
@@ -30,15 +30,13 @@ scrollbar {
 .box-wrapper {
   background: linear-gradient(
     165deg,
-    alpha(#3a6ea5, 0.35),
+    alpha(#656565, 0.35),
     alpha(@base, 0.55)
   );
   padding: 20px;
   border: 1px solid alpha(@border, 0.35);
   border-radius: 22px;
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: none;
 }
 
 .preview-box {
