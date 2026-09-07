@@ -19,7 +19,8 @@
     "pulseaudio/slider",
     "cpu",
     "battery",
-    "tray"
+    "tray",
+    "custom/notepad"
   ],
   "modules-right": [],
 
@@ -125,5 +126,11 @@
   "tray": {
     "icon-size": 11,
     "spacing": 8
+  },
+
+  "custom/notepad": {
+    "format": "🦒",
+    "tooltip-format": "Notepad — click to open",
+    "on-click": "~/.config/hypr/scripts/notepad.sh"
   }
 }

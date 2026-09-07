@@ -178,6 +178,19 @@ window#waybar .modules-center {
   to { opacity: 0.35; }
 }
 
+/* ── Notepad ── */
+#custom-notepad {
+  font-size: 16px;
+  padding: 0 6px;
+  margin-left: 2px;
+  opacity: 0.85;
+  transition: opacity 160ms ease;
+}
+
+#custom-notepad:hover {
+  opacity: 1;
+}
+
 /* ── Tray ── */
 #tray {
   padding: 0 2px 0 4px;
